@@ -9,19 +9,16 @@ education:
     degree: B.A. in Management, cum laude
     school: Universitas Terbuka, Indonesia
     notes:
-      - GPA 3.77/4.00
       - Electives in Econometrics and Linear Algebra
   - years: "2016–2018"
     degree: Diploma III in Accounting
     school: Politeknik Keuangan Negara STAN, Indonesia
     notes:
-      - GPA 3.41/4.00
       - Thesis on inventory-cycle controls and audit risk
   - years: "2011–2012"
     degree: Diploma I in Customs and Excise
     school: Sekolah Tinggi Akuntansi Negara (STAN), Indonesia
-    notes:
-      - GPA 3.43/4.00
+    notes: []
 
 employer:
   name: Directorate General of Customs and Excise (DJBC), Ministry of Finance, Republic of Indonesia
