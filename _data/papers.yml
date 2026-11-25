@@ -1,25 +1,25 @@
-# Working papers, newest first. Titles: copy them character for character from SSRN.
+# Working papers, newest first. Titles copied character for character from the version each entry follows.
 - slug: ai-procurement-customs
   status: working_paper
-  title: "AI Procurement Governance in Indonesian Customs: A Structured Literature Review"
+  title: "AI Procurement Governance in Indonesian Customs: A Systematic Literature Review"   # as on SSRN 5356967
   coauthors: []              # empty = sole author
   year: 2025
-  revised: 2026
-  summary: Reviews 31 studies on public-sector AI procurement and finds none on procurement of AI by customs agencies.
+  revised:
+  summary: Reviews 85 studies published 2020–2024 on AI procurement governance in customs administration, using a WHO-WHAT-WHEN-HOW framework, and proposes a multi-level governance framework for Indonesian customs modernization.
   links:
     - label: SSRN
       url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5356967
     - label: DOI
-      url: https://doi.org/10.5281/zenodo.16280655
+      url: https://doi.org/10.5281/zenodo.16280656   # Zenodo v1, the version that matches SSRN
 - slug: ai-passenger-inspection-ngurah-rai
   status: working_paper
-  title: "AI-Assisted Passenger Goods Inspection at Ngurah Rai International Airport"
+  title: "AI-Assisted Passenger Goods Inspection at Ngurah Rai International Airport - A Simplified Design Science Research Study"   # as on Zenodo v2
   coauthors: [Kurniawan Setiyadi]
   year: 2025
   revised:
-  summary: Design science study of an in-house AI tool for passenger baggage inspection.
+  summary: Design science study of an AI-enabled Telegram bot that automates customs inspection documentation with speech-to-text and rule-based classification. Interviews with 25 customs officers and three expert stakeholders found a 93% reduction in documentation time, alongside trust and accountability concerns.
   links:
     - label: SSRN
       url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5367066
     - label: DOI
-      url: https://doi.org/10.5281/zenodo.16622983
+      url: https://doi.org/10.5281/zenodo.16622983   # concept DOI, opens the latest version (v2)

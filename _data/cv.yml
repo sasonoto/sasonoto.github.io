@@ -35,7 +35,7 @@ positions:
     bullets:
       - Collected and analyzed field data for two Time Release Studies, using the World Customs Organization method to measure clearance time
       - Ran a passenger survey showing that 30% of passengers did not comply with electronic customs declaration rules
-      - Evaluated an in-house AI tool for baggage inspection, proposed as a low-cost alternative to a Rp 40 billion (about US$2.2 million) system; in an 8-week field study with 25 officers, average inspection time fell 47% (4.2 to 2.2 minutes)
+      - Evaluated an in-house AI tool, a Telegram bot that automates customs inspection documentation with speech-to-text and rule-based classification, proposed as a low-cost alternative to a Rp 40 billion (about US$2.2 million) system; in interviews with 25 customs officers and three experts, officers reported a 93% reduction in documentation time
   - kind: professional
     years: "Jan 2026 – Aug 2026"
     title: AI Solutions Engineer
