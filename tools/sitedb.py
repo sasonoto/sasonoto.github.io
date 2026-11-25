@@ -5,6 +5,7 @@
     ./site db check [--target T]              connection, schema version, row counts, last sync
 
 T = supabase | chicago | all (default all; a target whose URL is missing from .env is skipped).
+--via-ssh: reach chicago-o through `ssh chicago-o` when Tailscale is off on this machine.
 Secrets: values of .env are never printed; driver errors pass through scrub().
 """
 from __future__ import annotations
@@ -69,6 +70,34 @@ def scrub(text: str) -> str:
     for s in sorted(_SECRETS, key=len, reverse=True):
         text = text.replace(s, "***")
     return text
+
+
+SSH_HOST = "chicago-o"   # ssh alias used by --via-ssh
+SSH_LOCAL_PORT = 15432
+
+
+def open_tunnel(url: str):
+    """Forward localhost:SSH_LOCAL_PORT to chicago-o's Postgres over ssh; return (process, rewritten url)."""
+    import socket
+    import time
+    proc = subprocess.Popen(["ssh", "-o", "BatchMode=yes", "-o", "ExitOnForwardFailure=yes", "-N",
+                             "-L", f"{SSH_LOCAL_PORT}:127.0.0.1:5432", SSH_HOST],
+                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    for _ in range(50):
+        if proc.poll() is not None:
+            raise SiteDbError(f"ssh tunnel to {SSH_HOST} failed to start")
+        try:
+            socket.create_connection(("127.0.0.1", SSH_LOCAL_PORT), timeout=0.2).close()
+            break
+        except OSError:
+            time.sleep(0.2)
+    else:
+        proc.terminate()
+        raise SiteDbError("ssh tunnel did not open in 10 s")
+    scheme, rest = url.split("://", 1)
+    userinfo, _, tail = rest.rpartition("@")
+    path = tail[tail.index("/"):] if "/" in tail else "/site_db"
+    return proc, f"{scheme}://{userinfo}@127.0.0.1:{SSH_LOCAL_PORT}{path}"
 
 
 def connect(url: str):
@@ -227,13 +256,18 @@ def main(argv: list[str]) -> int:
     ap.add_argument("command", choices=["migrate", "sync", "check"])
     ap.add_argument("--target", choices=["all", *TARGETS], default="all")
     ap.add_argument("--dry-run", action="store_true", help="sync: run everything, then roll back")
+    ap.add_argument("--via-ssh", action="store_true",
+                    help=f"reach chicago-o through an ssh tunnel ({SSH_HOST}) instead of Tailscale")
     a = ap.parse_args(argv)
     try:
         rows = build_rows() if a.command == "sync" else None
         failed = 0
         for name, url in targets(a.target):
-            print(f"[{name}] {a.command}{' (dry run)' if a.dry_run else ''}")
+            print(f"[{name}] {a.command}{' (dry run)' if a.dry_run else ''}{' via ssh' if a.via_ssh and name == 'chicago' else ''}")
+            tunnel = None
             try:
+                if a.via_ssh and name == "chicago":
+                    tunnel, url = open_tunnel(url)
                 with connect(url) as conn:
                     if a.command == "migrate":
                         cmd_migrate(conn)
@@ -251,6 +285,9 @@ def main(argv: list[str]) -> int:
                 first = str(e).strip().splitlines()[0] if str(e).strip() else ""
                 print(f"  error: {type(e).__name__}: {scrub(first)}")
                 failed += 1
+            finally:
+                if tunnel:
+                    tunnel.terminate()
         return 1 if failed else 0
     except SiteDbError as e:
         print(f"error: {e}")

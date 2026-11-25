@@ -1,5 +1,8 @@
 # secrets: never commit
 .env
+.env.*
+!.env.example
+.verifier_*
 # build output and caches
 _site/
 .jekyll-cache/

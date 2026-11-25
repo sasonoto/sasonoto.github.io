@@ -19,6 +19,8 @@ for generating tailored resumes or the LaTeX CV later.
 | `./site db check [--target T]` | connection, schema version, row counts, last sync |
 
 `T` = `supabase`, `chicago` or `all` (default). A target with no URL in `.env` is skipped.
+Add `--via-ssh` when Tailscale is off on this Mac: chicago-o is then reached through `ssh chicago-o` (tunnel on
+localhost:15432). Example: `./site db sync --via-ssh`.
 
 | table | from |
 |:--|:--|
@@ -30,5 +32,12 @@ for generating tailored resumes or the LaTeX CV later.
 | `education`, `positions`, `position_bullets`, `cv_entries` (award / service / certification), `skills` | `_data/cv.yml` |
 
 Setup once: `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`, fill `.env`, `./site db migrate`, `./site db sync`.
-Supabase free projects pause after a quiet week; the site does not care, but sync fails until the project is restored
-(a weekly keep-alive on chicago-o avoids it).
+
+**Set up 2026-11-25:** Supabase project `personal-site` (ref `bbarpydcpdgxvtoryggj`, us-east-1); role `site_user`
+there owns schema `site` and nothing else. chicago-o: database `site_db` owned by `site_user`, `pg_hba.conf` line for
+the Tailscale range (backup `pg_hba.conf.bak-2026-11-25`). Passwords were generated locally; only SCRAM hashes were
+sent to the servers.
+
+**Keep-alive:** Supabase free projects pause after a quiet week (the site does not care, but sync would fail).
+chicago-o cron `23 8 * * 1,4` runs `~/.config/site-keepalive/ping.sh` (auth health request + one query); log in
+`~/.config/site-keepalive/last.log`.
