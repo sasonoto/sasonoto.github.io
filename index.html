@@ -1,0 +1,33 @@
+---
+layout: default
+title: About
+---
+{%- assign p = site.data.profile -%}
+<div class="home">
+  <aside class="side">
+    <img src="{{ p.portrait | relative_url }}" alt="Portrait of {{ p.name }}" width="600" height="800">
+    <div class="card">
+      {{ p.affiliation }}<br>{{ p.institution }}
+      <div class="links">{% include links.html %}</div>
+    </div>
+  </aside>
+  <div class="col">
+    <h1>{{ p.name }}</h1>
+    <div class="tagline">{{ p.headline }} · {{ p.affiliation }}, {{ p.institution }}</div>
+    {{ p.bio | markdownify }}
+
+    <h2>Research interests</h2>
+    <ul class="dash">
+      {%- for i in p.interests %}
+      <li>{{ i }}</li>
+      {%- endfor %}
+    </ul>
+
+    <h2>News</h2>
+    <ul class="rows tight">
+      {%- for n in site.data.news %}
+      <li class="row"><span class="when">{{ n.date }}</span><span>{{ n.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</div>

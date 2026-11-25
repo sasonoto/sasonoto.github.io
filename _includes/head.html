@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- assign p = site.data.profile -%}
+{%- if page.title and page.url != "/" -%}{%- assign full_title = page.title | append: " · " | append: site.title -%}{%- else -%}{%- assign full_title = site.title -%}{%- endif -%}
+{%- assign desc = page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 -%}
+<title>{{ full_title }}</title>
+<meta name="description" content="{{ desc | escape }}">
+<meta name="author" content="{{ p.name }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ full_title | escape }}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ p.portrait | absolute_url }}">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23800000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3ESH%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":{{ p.name | jsonify }},"url":{{ "/" | absolute_url | jsonify }},"jobTitle":{{ p.headline | jsonify }},"affiliation":{"@type":"CollegeOrUniversity","name":{{ p.institution | jsonify }}},"sameAs":[{{ "https://github.com/" | append: p.github | jsonify }}{% if p.linkedin != "" %},{{ "https://www.linkedin.com/" | append: p.linkedin | jsonify }}{% endif %}]}
+</script>

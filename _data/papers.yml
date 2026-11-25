@@ -1,0 +1,25 @@
+# Working papers, newest first. Titles: copy them character for character from SSRN.
+- slug: ai-procurement-customs
+  status: working_paper
+  title: "AI Procurement Governance in Indonesian Customs: A Structured Literature Review"
+  coauthors: []              # empty = sole author
+  year: 2025
+  revised: 2026
+  summary: Reviews 31 studies on public-sector AI procurement and finds none on procurement of AI by customs agencies.
+  links:
+    - label: SSRN
+      url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5356967
+    - label: DOI
+      url: https://doi.org/10.5281/zenodo.16280655
+- slug: ai-passenger-inspection-ngurah-rai
+  status: working_paper
+  title: "AI-Assisted Passenger Goods Inspection at Ngurah Rai International Airport"
+  coauthors: [Kurniawan Setiyadi]
+  year: 2025
+  revised:
+  summary: Design science study of an in-house AI tool for passenger baggage inspection.
+  links:
+    - label: SSRN
+      url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5367066
+    - label: DOI
+      url: https://doi.org/10.5281/zenodo.16622983

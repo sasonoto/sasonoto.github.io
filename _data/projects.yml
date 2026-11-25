@@ -1,0 +1,29 @@
+# Systems built inside DJBC. `adopted` is the institutional uptake line.
+- slug: siap-tanding
+  name: SIAP TANDING
+  years: "2026"
+  role: Designer and technical lead
+  description: "AI decision-support system for customs objection cases (importers disputing duty assessments): nine LLM agents (LangGraph), rule-based tax calculation, and human review gates so officers make the final decision."
+  stack: [LangGraph, FastAPI, Spring Boot, React]
+  adopted: ""
+- slug: declaration-dashboard
+  name: Customs declaration dashboard
+  years: "2022–2025"
+  role: Built end to end
+  description: Dashboard for passenger and goods declarations at Ngurah Rai Airport Customs Office.
+  stack: [PostgreSQL, Python, Airflow, Power BI]
+  adopted: Recognized as a DJBC national standard
+- slug: tkkb
+  name: TKKB early-warning model
+  years: "2018–2022"
+  role: Co-developer, with audit and IT colleagues
+  description: Sorts bonded-zone companies into nine groups by financial health and compliance; cut risk-review staff time by up to 50%.
+  stack: []
+  adopted: Adopted across all customs offices in West Java
+- slug: simantab
+  name: SIMANTAB risk model and dashboard
+  years: "2018–2022"
+  role: Initiator
+  description: Flags unusual transactions of duty-deferred goods; secured Rp 747 million (about US$42,000) in state revenue in its first year.
+  stack: [Tableau]
+  adopted: Adopted as a West Java regional standard

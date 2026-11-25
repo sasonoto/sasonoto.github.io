@@ -1,0 +1,105 @@
+# Full CV content for the /cv/ page (the PDF is built from files/*.tex in the cv folder).
+education:
+  - years: "2026–2028 (expected)"
+    degree: Master of Public Policy (STEM-designated)
+    school: Harris School of Public Policy, University of Chicago
+    notes:
+      - Full LPDP scholarship, Government of Indonesia
+  - years: "2019–2021"
+    degree: B.A. in Management, cum laude
+    school: Universitas Terbuka, Indonesia
+    notes:
+      - GPA 3.77/4.00
+      - Electives in Econometrics and Linear Algebra
+  - years: "2016–2018"
+    degree: Diploma III in Accounting
+    school: Politeknik Keuangan Negara STAN, Indonesia
+    notes:
+      - GPA 3.41/4.00
+      - Thesis on inventory-cycle controls and audit risk
+  - years: "2011–2012"
+    degree: Diploma I in Customs and Excise
+    school: Sekolah Tinggi Akuntansi Negara (STAN), Indonesia
+    notes:
+      - GPA 3.43/4.00
+
+employer:
+  name: Directorate General of Customs and Excise (DJBC), Ministry of Finance, Republic of Indonesia
+  note: Official civil service title since October 2013 is Pelaksana Pemeriksa (Customs Examiner); titles below are functional roles. On study leave since September 2026.
+
+positions:
+  - kind: research
+    years: "2022–2025"
+    title: Field research and evaluation
+    place: Ngurah Rai Airport Customs Office, Bali
+    bullets:
+      - Collected and analyzed field data for two Time Release Studies, using the World Customs Organization method to measure clearance time
+      - Ran a passenger survey showing that 30% of passengers did not comply with electronic customs declaration rules
+      - Evaluated an in-house AI tool for baggage inspection, proposed as a low-cost alternative to a Rp 40 billion (about US$2.2 million) system; in a simulation, average inspection time fell 47% (4.2 to 2.2 minutes)
+  - kind: professional
+    years: "Jan 2026 – Aug 2026"
+    title: AI Solutions Engineer
+    place: In-house software team, Jakarta
+    bullets:
+      - Led technical design and tech-stack choices in a 4–5 person team; built FastAPI and Spring Boot services and React front ends with AI coding assistants
+      - Designed SIAP TANDING, an AI decision-support system for customs objection cases (importers disputing duty assessments) with 9 LLM agents (LangGraph), rule-based tax calculation, and human review gates so officers make final decisions
+  - kind: professional
+    years: "Sep 2022 – Dec 2025"
+    title: Senior Data Analyst
+    place: Ngurah Rai Airport Customs Office, Bali
+    bullets:
+      - Developed a customs declaration dashboard end to end (PostgreSQL, Python and Airflow ETL, Power BI) for passenger and goods declarations, later recognized as a national standard
+      - Initiated digitalization of office services, reaching 90%, and led rollout of 12 dashboards covering about 80% of business processes; daily users grew from 0 to 40–50
+  - kind: professional
+    years: "Oct 2018 – Aug 2022"
+    title: Data Analyst
+    place: Bogor Customs Office, West Java
+    bullets:
+      - Analyzed financial statements and transactions of bonded-zone companies (duty-suspension zones similar to U.S. Foreign-Trade Zones) to find fraud indicators; recommended corrective actions and audited compliance
+      - Co-developed TKKB with audit and IT colleagues, an early-warning model sorting bonded-zone companies into 9 groups by financial health and compliance; cut risk-review staff time by up to 50%; adopted across West Java
+      - Initiated SIMANTAB's risk model and Tableau dashboard to flag unusual transactions of duty-deferred goods; secured Rp 747 million (about US$42,000) in state revenue in its first year; adopted as a West Java standard
+  - kind: leave
+    years: "Oct 2016 – Sep 2018"
+    title: Study leave
+    place: Diploma III in Accounting, Politeknik Keuangan Negara STAN
+    bullets: []
+  - kind: professional
+    years: "Oct 2013 – Sep 2016"
+    title: Customs Examiner
+    place: Bogor Customs Office, West Java
+    bullets:
+      - Inspected bonded-zone goods against declarations; automated weekly and monthly compliance reports in SQL
+
+awards:
+  - years: "2026–2028"
+    text: LPDP Scholarship (full funding for the MPP), Indonesia Endowment Fund for Education
+  - years: "2023"
+    text: 1st prize, office innovation contest, Ngurah Rai Airport Customs Office (team)
+  - years: "2020"
+    text: Best Employee, Innovation category, Bogor Customs Office
+  - years: "2019"
+    text: Best Employee, Bogor Customs Office
+
+service:
+  - years: "2022–2025"
+    text: Member, change-agent and risk-management teams, Ngurah Rai Airport Customs Office; coached senior officials one-on-one to use data in decisions and mentored staff in data analysis
+  - years: "2017"
+    text: Minister of Youth and Sports, Student Council (BEM), PKN STAN; prepared a 60-athlete team that placed 2nd nationally
+
+certifications:
+  - years: "2023"
+    text: ISO 19011 internal audit training
+  - years: "2022"
+    text: IBM Data Science Professional Certificate
+
+skills:
+  - group: Data and statistics
+    items: Python, SQL (PostgreSQL), R (basic), Excel, Tableau, Power BI, Airflow
+  - group: Software
+    items: FastAPI, Spring Boot, React
+  - group: AI systems
+    items: LangGraph multi-agent systems, LLM APIs, AI coding assistants
+  - group: Open research
+    items: Paper publishing with DOIs on Zenodo; SSRN
+  - group: Languages
+    items: Bahasa Indonesia (native), English (professional)

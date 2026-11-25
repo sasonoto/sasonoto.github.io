@@ -1,0 +1,11 @@
+# secrets: never commit
+.env
+# build output and caches
+_site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/
+.venv/
+__pycache__/
+.DS_Store

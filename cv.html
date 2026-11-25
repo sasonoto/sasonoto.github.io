@@ -1,0 +1,71 @@
+---
+layout: page
+title: Curriculum vitae
+permalink: /cv/
+wide: true
+description: Curriculum vitae of Sasonoto Hasbullah, MPP candidate at the Harris School of Public Policy, University of Chicago.
+---
+{%- assign cv = site.data.cv -%}
+<div class="cvbar"><a class="btn" href="{{ site.data.profile.cv_pdf | relative_url }}">Download PDF</a><span class="meta">Updated {{ site.data.profile.cv_updated }}</span></div>
+
+<h2>Education</h2>
+<ul class="rows">
+{%- for e in cv.education %}
+  <li class="row"><span class="when">{{ e.years }}</span><div><h3>{{ e.degree }}</h3><p class="sub">{{ e.school }}</p>
+  {% if e.notes.size > 0 %}<p>{{ e.notes | join: " · " }}</p>{% endif %}</div></li>
+{%- endfor %}
+</ul>
+
+<h2>Working papers</h2>
+<ul class="rows">
+{%- for w in site.data.papers %}
+  <li class="row"><span class="when">{{ w.year }}{% if w.revised %} (rev. {{ w.revised }}){% endif %}</span><div>
+    <p style="margin:0">&ldquo;{{ w.title }}.&rdquo; {% if w.coauthors.size > 0 %}With {{ w.coauthors | join: ", " }}.{% else %}Sole author.{% endif %}
+    {% for l in w.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p></div></li>
+{%- endfor %}
+</ul>
+
+{%- assign groups = "research|Research experience,professional|Professional experience" | split: "," %}
+{%- for g in groups %}
+{%- assign kv = g | split: "|" %}
+<h2>{{ kv[1] }}</h2>
+{%- if kv[0] == "professional" %}
+<p class="employer"><strong>{{ cv.employer.name }}</strong></p>
+<p class="employer-note">{{ cv.employer.note }}</p>
+{%- endif %}
+<ul class="rows">
+{%- for r in cv.positions %}{% if r.kind == kv[0] or kv[0] == "professional" and r.kind == "leave" %}
+  <li class="row"><span class="when">{{ r.years }}</span><div>
+    {% if r.kind == "leave" %}<p style="margin:0"><em>{{ r.title }}</em> for the {{ r.place }}</p>{% else %}<h3>{{ r.title }}</h3><p class="sub">{{ r.place }}</p>{% endif %}
+    {% if r.bullets.size > 0 %}<ul>{% for b in r.bullets %}<li>{{ b }}</li>{% endfor %}</ul>{% endif %}
+  </div></li>
+{%- endif %}{% endfor %}
+</ul>
+{%- endfor %}
+
+<h2>Teaching and training</h2>
+<ul class="rows">
+{%- for t in site.data.teaching %}
+  <li class="row"><span class="when">{{ t.years }}</span><div><h3>{{ t.role }}</h3><p class="sub">{{ t.org }}</p>
+  <ul>{% for i in t.items %}<li>{{ i }}</li>{% endfor %}</ul></div></li>
+{%- endfor %}
+</ul>
+
+{%- assign simple = "awards|Honors and awards,service|Leadership and service,certifications|Certifications" | split: "," %}
+{%- for s in simple %}
+{%- assign kv = s | split: "|" %}
+{%- assign key = kv[0] %}
+<h2>{{ kv[1] }}</h2>
+<ul class="rows tight">
+{%- for a in cv[key] %}
+  <li class="row"><span class="when">{{ a.years }}</span><span>{{ a.text }}</span></li>
+{%- endfor %}
+</ul>
+{%- endfor %}
+
+<h2>Skills</h2>
+<ul class="rows tight skills">
+{%- for s in cv.skills %}
+  <li class="row"><span class="when">{{ s.group }}</span><span>{{ s.items }}</span></li>
+{%- endfor %}
+</ul>

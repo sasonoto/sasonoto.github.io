@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Shim: ./site db <migrate|sync|check> [...] with the repo's Python (.venv first).
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -x "$DIR/.venv/bin/python" ]; then PY="$DIR/.venv/bin/python"; else PY=python3; fi
+case "$1" in
+  db) shift; exec "$PY" "$DIR/tools/sitedb.py" "$@" ;;
+  serve) exec env PATH="/opt/homebrew/opt/ruby@3.4/bin:$PATH" bundle exec jekyll serve --livereload ;;
+  *) echo "usage: ./site db <migrate|sync|check> [--target supabase|chicago|all] [--dry-run] | ./site serve"; exit 2 ;;
+esac

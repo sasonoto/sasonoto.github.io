@@ -1,0 +1,14 @@
+<header class="site">
+  <a class="wordmark" href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>
+  <nav class="main" aria-label="Main">
+    {%- for item in site.data.nav -%}
+      {%- assign active = false -%}
+      {%- if item.url == "/" -%}
+        {%- if page.url == "/" -%}{%- assign active = true -%}{%- endif -%}
+      {%- elsif page.url contains item.url -%}
+        {%- assign active = true -%}
+      {%- endif %}
+    <a href="{{ item.url | relative_url }}"{% if active %} class="active" aria-current="page"{% endif %}>{{ item.title }}{% if item.soon and site.posts.size == 0 %}<span class="soon">soon</span>{% endif %}</a>
+    {%- endfor %}
+  </nav>
+</header>

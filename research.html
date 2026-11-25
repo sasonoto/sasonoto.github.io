@@ -1,0 +1,29 @@
+---
+layout: page
+title: Research
+permalink: /research/
+description: Working papers on AI procurement governance and AI-assisted customs inspection.
+---
+<h2>Working papers</h2>
+{%- for w in site.data.papers %}{% if w.status == "working_paper" %}
+<div class="paper" id="{{ w.slug }}">
+  <h3>{{ w.title }}</h3>
+  <div class="meta">
+    {%- if w.coauthors.size > 0 %}<span class="with">with {{ w.coauthors | join: ", " }}</span>{% else %}Sole author{% endif %}
+    · {{ w.year }}{% if w.revised %}, revised {{ w.revised }}{% endif %}
+  </div>
+  <p class="summary">{{ w.summary }}</p>
+  <div class="tags">{% for l in w.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</div>
+</div>
+{%- endif %}{% endfor %}
+
+<h2>Work in progress</h2>
+<p class="meta" style="font-size:.8em">Listed here once there is a draft to share.</p>
+
+<h2>Research experience</h2>
+<ul class="rows">
+{%- for r in site.data.cv.positions %}{% if r.kind == "research" %}
+  <li class="row"><span class="when">{{ r.years }}</span><div><h3>{{ r.title }}</h3><p class="sub">{{ r.place }}</p>
+    <ul>{% for b in r.bullets %}<li>{{ b }}</li>{% endfor %}</ul></div></li>
+{%- endif %}{% endfor %}
+</ul>

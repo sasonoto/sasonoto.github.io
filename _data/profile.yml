@@ -1,0 +1,29 @@
+# Who you are. Master copy: edit here, then `./site db sync`.
+name: Sasonoto Hasbullah
+headline: Master of Public Policy candidate
+affiliation: Harris School of Public Policy
+institution: University of Chicago
+location: Chicago, IL
+email: ottohasbullah@uchicago.edu
+github: sasonoto            # github.com/<this>
+linkedin: ""                # e.g. "in/your-handle"; empty = not shown
+ssrn_author: ""             # full URL of your SSRN author page; empty = not shown
+cv_pdf: /files/Sasonoto_Hasbullah_CV.pdf   # public copy (no phone number)
+cv_updated: November 2026
+portrait: /assets/img/portrait.jpg
+
+# Bio: Markdown, one blank line between paragraphs.
+bio: |
+  I study public policy at the University of Chicago's Harris School of Public Policy on a full LPDP
+  scholarship from the Government of Indonesia. Since 2013 I have worked at Indonesia's Directorate General
+  of Customs and Excise, Ministry of Finance, as a customs examiner, data analyst, and AI solutions engineer.
+
+  My work sits where data, AI, and public administration meet: risk-based customs enforcement, compliance
+  analytics, and how governments keep human judgment in charge of AI decision-support systems. I have built
+  risk models and dashboards that became regional and national standards inside the customs service.
+
+interests:
+  - AI governance in public administration
+  - Risk-based customs and trade enforcement
+  - Compliance analytics and fraud detection
+  - Human oversight of AI decision-support systems in government

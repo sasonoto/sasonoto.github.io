@@ -1,0 +1,19 @@
+---
+layout: page
+title: Projects &amp; policy work
+permalink: /projects/
+wide: true
+lede: Systems I designed or helped build inside Indonesia's customs service, and where they were adopted.
+description: AI decision-support, risk models, and dashboards built inside Indonesia's customs service, and where they were adopted.
+---
+<h2>Selected</h2>
+<ul class="rows">
+{%- for x in site.data.projects %}
+  <li class="row" id="{{ x.slug }}"><span class="when">{{ x.years }}</span><div>
+    <h3>{{ x.name }}</h3>
+    <p>{{ x.description }}</p>
+    {% if x.adopted != "" %}<div class="adopted">{{ x.adopted }}</div>{% endif %}
+    {% if x.stack.size > 0 %}<div class="stack">{{ x.role }} · {{ x.stack | join: ", " }}</div>{% else %}<div class="stack">{{ x.role }}</div>{% endif %}
+  </div></li>
+{%- endfor %}
+</ul>

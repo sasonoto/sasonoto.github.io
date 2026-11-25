@@ -1,0 +1,11 @@
+---
+layout: page
+title: Teaching &amp; training
+permalink: /teaching/
+description: Trainings, training-of-trainers sessions, and a data analytics course for Indonesia's Ministry of Finance.
+---
+{%- for t in site.data.teaching %}
+<h2>{{ t.role }} · {{ t.years }}</h2>
+<p class="sub" style="color:var(--muted)">{{ t.org }}</p>
+<ul class="dash">{% for i in t.items %}<li>{{ i }}</li>{% endfor %}</ul>
+{%- endfor %}
